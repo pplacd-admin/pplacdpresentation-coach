@@ -156,6 +156,7 @@
     <main id="presentation-container">
         <!-- Slide 1: Title -->
         <section id="slide-1" class="slide slide-bg-1 text-center">
+          
             <div class="max-w-4xl mx-auto">
                 <a href="https://www.pplacd.com" target="_blank" class="inline-block mb-6 text-xl font-bold text-indigo-600">www.pplacd.com</a>
                 <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
@@ -173,6 +174,7 @@
 
         <!-- Slide 2: The Core Mission -->
         <section id="slide-2" class="slide slide-bg-2">
+            
             <div class="card max-w-4xl text-center">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">Your Wisdom, Their Future</h2>
                 <p class="text-lg md:text-xl text-slate-600 mb-8">
@@ -195,6 +197,7 @@
 
         <!-- Slide 3: The Financial Opportunity -->
         <section id="slide-3" class="slide slide-bg-3">
+             
              <div class="card max-w-4xl text-center">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">Impact That Pays</h2>
                 <p class="text-lg md:text-xl text-slate-600 mb-8">
@@ -217,6 +220,7 @@
 
         <!-- Slide 4: Key Benefits for Coaches -->
         <section id="slide-4" class="slide slide-bg-4">
+            
             <div class="max-w-6xl w-full">
                 <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">Designed for <span class="gradient-text">Your Success</span></h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -246,6 +250,7 @@
 
         <!-- Slide 5: Powerful Platform Tools -->
         <section id="slide-5" class="slide slide-bg-5">
+           
             <div class="max-w-6xl w-full">
                 <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">Your Coaching <span class="gradient-text">Toolkit</span></h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -291,10 +296,22 @@
                             <h3 class="text-xl font-semibold mb-1">Professional Validation</h3>
                             <p class="text-slate-600">Our verified coach status adds credibility and trust to your professional profile.</p>
                         </div>
-                     </div>
+                    </div>
+                    <!-- Gemini Feature 
+                     <div class="md:col-span-3 mt-8 p-6 bg-white rounded-2xl border border-indigo-200 shadow-sm text-center">
+                        <h3 class="text-2xl font-bold mb-4">✨ AI-Powered Assistant</h3>
+                        <p class="text-slate-600 mb-6 max-w-2xl mx-auto">Break the ice and build rapport instantly. Let our AI help you craft the perfect opening questions for your coaching sessions.</p>
+                        <button id="generate-icebreakers-btn" class="bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-indigo-700 transition-colors">
+                            Generate Icebreakers
+                        </button>
+                    </div> -->
+                </div>
+            </div>
+        </section>
 
         <!-- Slide 6: Why PPLACD is Different -->
         <section id="slide-6" class="slide slide-bg-6">
+            
             <div class="card max-w-4xl text-center">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">The PPLACD Difference</h2>
                 <p class="text-lg md:text-xl text-slate-600 mb-8">We're not just a marketplace. We're building a career development ecosystem designed for meaningful connections and real results.</p>
@@ -317,6 +334,7 @@
 
         <!-- Slide 7: Call to Action -->
         <section id="slide-7" class="slide slide-bg-7 text-center">
+            
              <div class="max-w-3xl mx-auto">
                  <h2 class="text-5xl md:text-6xl font-bold mb-6">Ready to Make an Impact?</h2>
                  <p class="text-xl md:text-2xl text-slate-600 mb-12">
@@ -344,9 +362,8 @@
             </div>
         </div>
     </div>
-           
-    <script>
 
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.slide');
             const navDotsContainer = document.getElementById('nav-dots');
@@ -448,6 +465,7 @@
                 }
             }
 
+
             icebreakerBtn.addEventListener('click', async () => {
                 showModal('✨ AI Generated Icebreakers');
                 const prompt = "You are an expert career coach. Generate 5 friendly, insightful, and professional icebreaker questions for a first coaching session with a new candidate. The questions should help build rapport and understand their career goals. Format the output as a numbered list.";
@@ -462,10 +480,9 @@
                 modalBody.innerHTML = `<p>${result.replace(/\n/g, '<br>')}</p>`;
             });
 
-        }); 
+        });
     </script>
 
 </body>
 </html>
-
 

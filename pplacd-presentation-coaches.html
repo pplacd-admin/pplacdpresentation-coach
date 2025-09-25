@@ -344,8 +344,9 @@
             </div>
         </div>
     </div>
-    <!--               
+           
     <script>
+
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.slide');
             const navDotsContainer = document.getElementById('nav-dots');
@@ -447,7 +448,6 @@
                 }
             }
 
-
             icebreakerBtn.addEventListener('click', async () => {
                 showModal('✨ AI Generated Icebreakers');
                 const prompt = "You are an expert career coach. Generate 5 friendly, insightful, and professional icebreaker questions for a first coaching session with a new candidate. The questions should help build rapport and understand their career goals. Format the output as a numbered list.";
@@ -462,9 +462,9 @@
                 modalBody.innerHTML = `<p>${result.replace(/\n/g, '<br>')}</p>`;
             });
 
-        });
+        }); 
     </script>
--->
+
 </body>
 </html>
 

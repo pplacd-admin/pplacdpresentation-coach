@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join PPLACD: Empower the Next Generation of Professionals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .slide {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .slide-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #4f46e5, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        .nav-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 50;
+        }
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .nav-dot.active {
+            background-color: #4f46e5;
+            transform: scale(1.25);
+        }
+        .slide-logo {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 150px;
+            z-index: 10;
+        }
+        .slide-bg-1 { background-image: radial-gradient(#e0e7ff 1px, transparent 1px); background-size: 20px 20px; }
+        .slide-bg-2 { background-color: #f0f9ff; }
+        .slide-bg-3 { background-image: linear-gradient(135deg, #f5f3ff 0%, #ecfeff 100%); }
+        .slide-bg-4 { background-color: #f9fafb; }
+        .slide-bg-5 { background-color: #f0fdf4; }
+        .slide-bg-6 { background-color: #fffbeb; }
+        .slide-bg-7 { background-color: #faf5ff; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            color: #9ca3af;
+        }
+        .modal-close:hover {
+            color: #1f2937;
+        }
+
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+        .spinner {
+          border: 4px solid rgba(0,0,0,0.1);
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          border-left-color: #4f46e5;
+          animation: spin 1s ease infinite;
+        }
+
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="nav-dots" id="nav-dots"></div>
+
+    <main id="presentation-container">
+        <!-- Slide 1: Title -->
+        <section id="slide-1" class="slide slide-bg-1 text-center">
+            <img src="https://storage.googleapis.com/gemini-pro-us-west1-prod-scratch-bucket/2024-05-16/uploaded%3Applacd-logo-footer.png-edb8a518-4030-4708-862c-17b08f03147b" alt="PPLACD Logo" class="slide-logo">
+            <div class="max-w-4xl mx-auto">
+                <a href="https://www.pplacd.com" target="_blank" class="inline-block mb-6 text-xl font-bold text-indigo-600">www.pplacd.com</a>
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
+                    Become a <span class="gradient-text">Catalyst for Careers</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-600 mt-6 max-w-3xl mx-auto">
+                    An invitation for professional coaches to join PPLACD and shape the future of the workforce.
+                </p>
+                <div class="mt-12 flex justify-center items-center gap-2 text-slate-500">
+                    <i class="fas fa-chevron-down"></i>
+                    <span>Scroll to Begin</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: The Core Mission -->
+        <section id="slide-2" class="slide slide-bg-2">
+            <img src="https://storage.googleapis.com/gemini-pro-us-west1-prod-scratch-bucket/2024-05-16/uploaded%3Applacd-logo-footer.png-edb8a518-4030-4708-862c-17b08f03147b" alt="PPLACD Logo" class="slide-logo">
+            <div class="card max-w-4xl text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Your Wisdom, Their Future</h2>
+                <p class="text-lg md:text-xl text-slate-600 mb-8">
+                    This is more than coaching. It's about guiding the next generation toward fulfilling careers, helping them navigate challenges, and building a stronger, more capable workforce. Your experience becomes their advantage.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <div class="bg-indigo-50 p-6 rounded-2xl">
+                        <i class="fas fa-lightbulb text-3xl text-indigo-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Shape the Future</h3>
+                        <p class="text-slate-600">Be directly responsible for shaping the skills and confidence of emerging professionals.</p>
+                    </div>
+                    <div class="bg-sky-50 p-6 rounded-2xl">
+                        <i class="fas fa-hand-holding-heart text-3xl text-sky-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Give Back Meaningfully</h3>
+                        <p class="text-slate-600">Lead candidates to fulfilling careers and contribute positively to the community.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: The Financial Opportunity -->
+        <section id="slide-3" class="slide slide-bg-3">
+             <img src="https://storage.googleapis.com/gemini-pro-us-west1-prod-scratch-bucket/2024-05-16/uploaded%3Applacd-logo-footer.png-edb8a518-4030-4708-862c-17b08f03147b" alt="PPLACD Logo" class="slide-logo">
+             <div class="card max-w-4xl text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Impact That Pays</h2>
+                <p class="text-lg md:text-xl text-slate-600 mb-8">
+                    Create a flexible and rewarding source of income by dedicating just a few hours a week. At PPLACD, you can monetize your expertise while making a tangible, positive impact on someone's life and career trajectory.
+                </p>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <div class="bg-purple-50 p-6 rounded-2xl">
+                        <i class="fas fa-chart-line text-3xl text-purple-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Flexible Income Stream</h3>
+                        <p class="text-slate-600">Supplement your income on your own schedule, from anywhere in the world.</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-2xl">
+                        <i class="fas fa-handshake text-3xl text-blue-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Win-Win Proposition</h3>
+                        <p class="text-slate-600">Earn money while helping others achieve their professional dreams.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Key Benefits for Coaches -->
+        <section id="slide-4" class="slide slide-bg-4">
+            <img src="https://storage.googleapis.com/gemini-pro-us-west1-prod-scratch-bucket/2024-05-16/uploaded%3Applacd-logo-footer.png-edb8a518-4030-4708-862c-17b08f03147b" alt="PPLACD Logo" class="slide-logo">
+            <div class="max-w-6xl w-full">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">Designed for <span class="gradient-text">Your Success</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card p-6 text-center h-full flex flex-col">
+                        <i class="fas fa-users text-3xl text-indigo-500 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Motivated Candidates</h3>
+                        <p class="text-slate-600 text-sm flex-grow">Connect with job seekers actively investing in their career growth.</p>
+                    </div>
+                    <div class="card p-6 text-center h-full flex flex-col">
+                        <i class="fas fa-dollar-sign text-3xl text-green-500 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Set Your Own Rates</h3>
+                        <p class="text-slate-600 text-sm flex-grow">You have full control over your pricing and service packages.</p>
+                    </div>
+                    <div class="card p-6 text-center h-full flex flex-col">
+                        <i class="fas fa-bullhorn text-3xl text-sky-500 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Zero Client Acquisition</h3>
+                        <p class="text-slate-600 text-sm flex-grow">We handle the marketing and matching so you can focus on coaching.</p>
+                    </div>
+                    <div class="card p-6 text-center h-full flex flex-col">
+                        <i class="fas fa-shield-alt text-3xl text-red-500 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Secure Payments</h3>
+                        <p class="text-slate-600 text-sm flex-grow">Get paid reliably through our secure, multi-currency system.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Powerful Platform Tools -->
+        <section id="slide-5" class="slide slide-bg-5">
+            <img src="https://storage.googleapis.com/gemini-pro-us-west1-prod-scratch-bucket/2024-05-16/uploaded%3Applacd-logo-footer.png-edb8a518-4030-4708-862c-17b08f03147b" alt="PPLACD Logo" class="slide-logo">
+            <div class="max-w-6xl w-full">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">Your Coaching <span class="gradient-text">Toolkit</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Existing tools... -->
+                    <div class="flex items-start gap-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-xl"><i class="fas fa-user-circle fa-2x"></i></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Comprehensive Profile</h3>
+                            <p class="text-slate-600">Showcase your expertise, background, and coaching specialties to attract the right candidates.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-xl"><i class="fas fa-comments fa-2x"></i></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Real-Time Messaging</h3>
+                            <p class="text-slate-600">Communicate efficiently and securely with candidates through integrated channels.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-xl"><i class="fas fa-calendar-alt fa-2x"></i></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Session Management</h3>
+                            <p class="text-slate-600">Easily schedule, track, and manage all your coaching appointments in one place.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start gap-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-xl"><i class="fas fa-chart-pie fa-2x"></i></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Revenue Analytics</h3>
+                            <p class="text-slate-600">Track your earnings, monitor performance, and gain insights into your coaching business.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start gap-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-xl"><i class="fas fa-share-alt fa-2x"></i></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Resource Sharing</h3>
+                            <p class="text-slate-600">Securely provide documents, links, and other materials to your candidates.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start gap-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-xl"><i class="fas fa-check-circle fa-2x"></i></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Professional Validation</h3>
+                            <p class="text-slate-600">Our verified coach status adds credibility and trust to your professional profile.</p>
+                        </div>
+                    </div>
+                    <!-- Gemini Feature -->
+                     <div class="md:col-span-3 mt-8 p-6 bg-white rounded-2xl border border-indigo-200 shadow-sm text-center">
+                        <h3 class="text-2xl font-bold mb-4">✨ AI-Powered Assistant</h3>
+                        <p class="text-slate-600 mb-6 max-w-2xl mx-auto">Break the ice and build rapport instantly. Let our AI help you craft the perfect opening questions for your coaching sessions.</p>
+                        <button id="generate-icebreakers-btn" class="bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-indigo-700 transition-colors">
+                            Generate Icebreakers
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Why PPLACD is Different -->
+        <section id="slide-6" class="slide slide-bg-6">
+            <img src="https://storage.googleapis.com/gemini-pro-us-west1-prod-scratch-bucket/2024-05-16/uploaded%3Applacd-logo-footer.png-edb8a518-4030-4708-862c-17b08f03147b" alt="PPLACD Logo" class="slide-logo">
+            <div class="card max-w-4xl text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">The PPLACD Difference</h2>
+                <p class="text-lg md:text-xl text-slate-600 mb-8">We're not just a marketplace. We're building a career development ecosystem designed for meaningful connections and real results.</p>
+                <div class="space-y-6 text-left">
+                    <div class="flex items-center gap-4 bg-amber-50 p-4 rounded-xl">
+                        <i class="fas fa-cogs text-2xl text-amber-500 w-8 text-center"></i>
+                        <p class="text-slate-700 font-medium"><strong>Three-Party Ecosystem:</strong> A unique platform connecting coaches, candidates, and companies.</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-amber-50 p-4 rounded-xl">
+                        <i class="fas fa-award text-2xl text-amber-500 w-8 text-center"></i>
+                        <p class="text-slate-700 font-medium"><strong>Quality-Focused:</strong> Our validation process ensures high standards for all coaches, building trust.</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-amber-50 p-4 rounded-xl">
+                        <i class="fas fa-network-wired text-2xl text-amber-500 w-8 text-center"></i>
+                        <p class="text-slate-700 font-medium"><strong>Growing Community:</strong> Join a vibrant network of career development professionals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Call to Action -->
+        <section id="slide-7" class="slide slide-bg-7 text-center">
+            <img src="https://storage.googleapis.com/gemini-pro-us-west1-prod-scratch-bucket/2024-05-16/uploaded%3Applacd-logo-footer.png-edb8a518-4030-4708-862c-17b08f03147b" alt="PPLACD Logo" class="slide-logo">
+             <div class="max-w-3xl mx-auto">
+                 <h2 class="text-5xl md:text-6xl font-bold mb-6">Ready to Make an Impact?</h2>
+                 <p class="text-xl md:text-2xl text-slate-600 mb-12">
+                     Join us in our mission to empower professionals and build the workforce of tomorrow. Your journey as a PPLACD coach starts now.
+                 </p>
+                 <a href="https://www.pplacd.com" target="_blank" class="bg-indigo-600 text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-indigo-700 transition-transform transform hover:scale-105 inline-block shadow-lg">
+                     Join Our Platform
+                 </a>
+                  <div class="mt-8">
+                     <button id="draft-message-btn" class="text-indigo-600 font-semibold py-2 px-4 rounded-lg hover:bg-indigo-50 transition-colors">
+                         ✨ See a Sample AI-Drafted Welcome Message
+                     </button>
+                 </div>
+             </div>
+        </section>
+    </main>
+
+    <!-- Modal for Gemini API results -->
+    <div id="gemini-modal" class="modal-overlay">
+        <div class="modal-content">
+            <i class="fas fa-times modal-close" id="modal-close-btn"></i>
+            <h3 id="modal-title" class="text-2xl font-bold mb-4">AI Generated Content</h3>
+            <div id="modal-body" class="text-slate-600">
+                <!-- Content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const navDotsContainer = document.getElementById('nav-dots');
+
+            // Create nav dots
+            slides.forEach((slide, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('nav-dot');
+                dot.dataset.slide = `slide-${index + 1}`;
+                dot.addEventListener('click', () => {
+                    slide.scrollIntoView({ behavior: 'smooth' });
+                });
+                navDotsContainer.appendChild(dot);
+            });
+            
+            const navDots = document.querySelectorAll('.nav-dot');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.6 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('slide-visible');
+                        
+                        // Update active nav dot
+                        const activeDot = document.querySelector(`.nav-dot[data-slide="${entry.target.id}"]`);
+                        navDots.forEach(dot => dot.classList.remove('active'));
+                        if(activeDot) {
+                            activeDot.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            slides.forEach(slide => {
+                observer.observe(slide);
+            });
+
+            // --- Gemini API Integration ---
+            const modal = document.getElementById('gemini-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const closeModalBtn = document.getElementById('modal-close-btn');
+
+            const icebreakerBtn = document.getElementById('generate-icebreakers-btn');
+            const draftMessageBtn = document.getElementById('draft-message-btn');
+
+            const apiKey = ""; // API key will be provided by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const showModal = (title) => {
+                modalTitle.textContent = title;
+                modalBody.innerHTML = `<div class="flex justify-center items-center p-8"><div class="spinner"></div></div>`;
+                modal.classList.add('visible');
+            };
+
+            const hideModal = () => {
+                modal.classList.remove('visible');
+            };
+
+            closeModalBtn.addEventListener('click', hideModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+            
+            async function callGeminiAPI(prompt) {
+                try {
+                    const payload = {
+                        contents: [{ parts: [{ text: prompt }] }],
+                    };
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API request failed with status ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        return candidate.content.parts[0].text;
+                    } else {
+                        throw new Error("Invalid response structure from API.");
+                    }
+                } catch (error) {
+                    console.error("Gemini API call failed:", error);
+                    return "Sorry, something went wrong while generating content. Please try again later.";
+                }
+            }
+
+
+            icebreakerBtn.addEventListener('click', async () => {
+                showModal('✨ AI Generated Icebreakers');
+                const prompt = "You are an expert career coach. Generate 5 friendly, insightful, and professional icebreaker questions for a first coaching session with a new candidate. The questions should help build rapport and understand their career goals. Format the output as a numbered list.";
+                const result = await callGeminiAPI(prompt);
+                modalBody.innerHTML = result.replace(/\n/g, '<br>');
+            });
+
+            draftMessageBtn.addEventListener('click', async () => {
+                showModal('✨ AI Drafted Welcome Message');
+                const prompt = "You are a friendly and professional career coach on the PPLACD platform. Draft a warm and encouraging welcome message (around 75-100 words) to a new candidate you've just been matched with. The message should express excitement for their journey and set a positive tone for your first session.";
+                const result = await callGeminiAPI(prompt);
+                modalBody.innerHTML = `<p>${result.replace(/\n/g, '<br>')}</p>`;
+            });
+
+        });
+    </script>
+
+</body>
+</html>
+
+
